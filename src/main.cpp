@@ -2,6 +2,8 @@
 #include "FeePayment.h"
 #include "Test.h"
 #include "Attendance.h"
+#include "Student.h"
+#include "Faculty.h"
 #include <iostream>
 #include <exception>
 
@@ -20,6 +22,17 @@ int main() {
             101, "21-10-2026", "Present"
         );
 
+        Student student(
+            101, "Khushi", "9876543210",
+            "Anand", "Computer Engineering",
+            "CP-2025", "01-07-2025"
+        );
+
+        Faculty faculty(
+            201, "Rahul Mehta", "9876501234",
+            "Anand", "C++ Programming", 45000.0
+        );
+
         std::cout << "=== Fee Payment Details ===\n";
         payment.displayPayment();
 
@@ -28,6 +41,12 @@ int main() {
 
         std::cout << "\n=== Attendance Details ===\n";
         attendance.displayAttendance();
+
+        std::cout << "\n=== Student Details ===\n";
+        student.displayDetails();
+
+        std::cout << "\n=== Faculty Details ===\n";
+        faculty.displayDetails();
 
     } catch (const std::exception& e) {
         std::cout << "Error: " << e.what() << '\n';
