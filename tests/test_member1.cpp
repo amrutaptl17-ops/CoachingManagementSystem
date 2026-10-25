@@ -3,30 +3,51 @@
 #include "Student.h"
 #include "Faculty.h"
 #include <iostream>
+#include <fstream>
 #include <exception>
+
+using namespace std;
 
 int main() {
     try {
-        std::cout << "=== Person Test ===\n";
-        Person person(1, "Rahul", "9876543210", "Anand");
-        person.displayDetails();
+        Person person(
+            1, "Rahul", "9876543210", "Anand"
+        );
 
-        std::cout << "\n=== Student Test ===\n";
         Student student(
             2, "Amit", "9876501234", "Anand",
             "Computer Engineering", "CE-A", "01-07-2026"
         );
-        student.displayDetails();
 
-        std::cout << "\n=== Faculty Test ===\n";
         Faculty faculty(
             3, "Neha", "9876512345", "Anand",
             "Computer Engineering", 35000.0
         );
+
+        cout << "=== Person Details ===\n";
+        person.displayDetails();
+
+        cout << "\n=== Student Details ===\n";
+        student.displayDetails();
+
+        cout << "\n=== Faculty Details ===\n";
         faculty.displayDetails();
 
-    } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << '\n';
+        // File handling: save student details
+        ofstream studentFile("students.txt");
+
+        if (!studentFile.is_open()) {
+            cerr << "Error: Could not open students.txt\n";
+            return 1;
+        }
+
+        student.saveToFile(studentFile);
+        studentFile.close();
+
+        cout << "\nStudent details saved to students.txt successfully!\n";
+
+    } catch (const exception& e) {
+        cerr << "Error: " << e.what() << '\n';
         return 1;
     }
 
