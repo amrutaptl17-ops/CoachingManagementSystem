@@ -2,22 +2,23 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#include "person.h"
+#include "Person.h"
 #include <string>
+using namespace std;
 
 class Student : public Person {
 private:
-    std::string course;
-    std::string batch;
-    std::string admissionDate;
+    string course;
+    string batch;
+    string admissionDate;
 
 public:
-    Student(int id, const std::string& name,
-            const std::string& contact,
-            const std::string& address,
-            const std::string& course,
-            const std::string& batch,
-            const std::string& admissionDate);
+    Student(int id, const string& name,
+            const string& contact,
+            const string& address,
+            const string& course,
+            const string& batch,
+            const string& admissionDate);
 
     void displayDetails() const override;
 };

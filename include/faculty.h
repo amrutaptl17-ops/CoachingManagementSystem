@@ -2,19 +2,20 @@
 #ifndef FACULTY_H
 #define FACULTY_H
 
-#include "person.h"
+#include "Person.h"
 #include <string>
+using namespace std;
 
 class Faculty : public Person {
 private:
-    std::string subject;
+    string subject;
     double salary;
 
 public:
-    Faculty(int id, const std::string& name,
-            const std::string& contact,
-            const std::string& address,
-            const std::string& subject,
+    Faculty(int id, const string& name,
+            const string& contact,
+            const string& address,
+            const string& subject,
             double salary);
 
     void displayDetails() const override;

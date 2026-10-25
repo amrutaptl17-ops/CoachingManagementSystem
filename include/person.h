@@ -3,25 +3,26 @@
 #define PERSON_H
 
 #include <string>
+using namespace std;
 
 class Person {
 private:
     int id;
-    std::string name;
-    std::string contact;
-    std::string address;
+    string name;
+    string contact;
+    string address;
 
 public:
-    Person(int id, const std::string& name,
-           const std::string& contact,
-           const std::string& address);
+    Person(int id, const string& name,
+           const string& contact,
+           const string& address);
 
     virtual ~Person() = default;
 
     int getId() const;
-    std::string getName() const;
-    std::string getContact() const;
-    std::string getAddress() const;
+    string getName() const;
+    string getContact() const;
+    string getAddress() const;
 
     virtual void displayDetails() const;
 };
