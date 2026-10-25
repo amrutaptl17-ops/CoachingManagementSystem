@@ -3,21 +3,22 @@
 #define ATTENDANCE_H
 
 #include <string>
+using namespace std;
 
 class Attendance {
 private:
     int studentId;
-    std::string attendanceDate;
-    std::string status;
+    string attendanceDate;
+    string status;
 
 public:
     Attendance(int studentId,
-               const std::string& attendanceDate,
-               const std::string& status);
+               const string& attendanceDate,
+               const string& status);
 
     int getStudentId() const;
-    std::string getAttendanceDate() const;
-    std::string getStatus() const;
+    string getAttendanceDate() const;
+    string getStatus() const;
 
     void displayAttendance() const;
 };
