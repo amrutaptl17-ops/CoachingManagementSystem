@@ -1,6 +1,7 @@
 
-#include "Faculty.h"
+#include "faculty.h"
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
@@ -18,4 +19,17 @@ void Faculty::displayDetails() const {
     Person::displayDetails();
     cout << "Subject        : " << subject << '\n';
     cout << "Salary         : " << salary << '\n';
+}
+
+void Faculty::saveToFile(ofstream& file) const {
+    if (!file.is_open()) {
+        throw runtime_error("Could not open faculty file.");
+    }
+
+    file << getId() << ','
+         << getName() << ','
+         << getContact() << ','
+         << getAddress() << ','
+         << subject << ','
+         << salary << '\n';
 }

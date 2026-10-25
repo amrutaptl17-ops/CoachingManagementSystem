@@ -33,7 +33,7 @@ int main() {
         cout << "\n=== Faculty Details ===\n";
         faculty.displayDetails();
 
-        // File handling: save student details
+        // Save student details
         ofstream studentFile("students.txt");
 
         if (!studentFile.is_open()) {
@@ -45,6 +45,19 @@ int main() {
         studentFile.close();
 
         cout << "\nStudent details saved to students.txt successfully!\n";
+
+        // Save faculty details
+        ofstream facultyFile("faculty.txt");
+
+        if (!facultyFile.is_open()) {
+            cerr << "Error: Could not open faculty.txt\n";
+            return 1;
+        }
+
+        faculty.saveToFile(facultyFile);
+        facultyFile.close();
+
+        cout << "Faculty details saved to faculty.txt successfully!\n";
 
     } catch (const exception& e) {
         cerr << "Error: " << e.what() << '\n';
