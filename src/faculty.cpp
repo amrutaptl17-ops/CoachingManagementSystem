@@ -2,18 +2,20 @@
 #include "Faculty.h"
 #include <iostream>
 
-Faculty::Faculty(int id, const std::string& name,
-                 const std::string& contact,
-                 const std::string& address,
-                 const std::string& subject,
+using namespace std;
+
+Faculty::Faculty(int id, const string& name,
+                 const string& contact,
+                 const string& address,
+                 const string& subject,
                  double salary)
     : Person(id, name, contact, address),
       subject(subject), salary(salary) {
 }
 
 void Faculty::displayDetails() const {
-    std::cout << "\n=== Faculty Details ===\n";
+    cout << "\n=== Faculty Details ===\n";
     Person::displayDetails();
-    std::cout << "Subject        : " << subject << '\n';
-    std::cout << "Salary         : " << salary << '\n';
+    cout << "Subject        : " << subject << '\n';
+    cout << "Salary         : " << salary << '\n';
 }

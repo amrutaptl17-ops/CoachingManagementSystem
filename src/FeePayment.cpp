@@ -3,10 +3,12 @@
 #include <iostream>
 #include <stdexcept>
 
+using namespace std;
+
 FeePayment::FeePayment(int paymentId, int studentId,
                        double amount,
-                       const std::string& paymentDate,
-                       const std::string& paymentMethod)
+                       const string& paymentDate,
+                       const string& paymentMethod)
     : paymentId(paymentId),
       studentId(studentId),
       amount(amount),
@@ -14,15 +16,15 @@ FeePayment::FeePayment(int paymentId, int studentId,
       paymentMethod(paymentMethod) {
 
     if (paymentId <= 0 || studentId <= 0) {
-        throw std::invalid_argument("IDs must be positive.");
+        throw invalid_argument("IDs must be positive.");
     }
 
     if (amount <= 0) {
-        throw std::invalid_argument("Amount must be positive.");
+        throw invalid_argument("Amount must be positive.");
     }
 
     if (paymentDate.empty() || paymentMethod.empty()) {
-        throw std::invalid_argument(
+        throw invalid_argument(
             "Date and payment method cannot be empty.");
     }
 }
@@ -40,9 +42,9 @@ double FeePayment::getAmount() const {
 }
 
 void FeePayment::displayPayment() const {
-    std::cout << "Payment ID     : " << paymentId << '\n';
-    std::cout << "Student ID     : " << studentId << '\n';
-    std::cout << "Amount         : Rs. " << amount << '\n';
-    std::cout << "Payment Date   : " << paymentDate << '\n';
-    std::cout << "Payment Method : " << paymentMethod << '\n';
+    cout << "Payment ID     : " << paymentId << '\n';
+    cout << "Student ID     : " << studentId << '\n';
+    cout << "Amount         : Rs. " << amount << '\n';
+    cout << "Payment Date   : " << paymentDate << '\n';
+    cout << "Payment Method : " << paymentMethod << '\n';
 }

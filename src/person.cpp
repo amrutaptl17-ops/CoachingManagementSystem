@@ -3,40 +3,42 @@
 #include <iostream>
 #include <stdexcept>
 
-Person::Person(int id, const std::string& name,
-               const std::string& contact,
-               const std::string& address)
+using namespace std;
+
+Person::Person(int id, const string& name,
+               const string& contact,
+               const string& address)
     : id(id), name(name), contact(contact), address(address) {
 
     if (id <= 0)
-        throw std::invalid_argument("ID must be positive.");
+        throw invalid_argument("ID must be positive.");
 
     if (name.empty())
-        throw std::invalid_argument("Name cannot be empty.");
+        throw invalid_argument("Name cannot be empty.");
 
     if (contact.empty())
-        throw std::invalid_argument("Contact cannot be empty.");
+        throw invalid_argument("Contact cannot be empty.");
 }
 
 int Person::getId() const {
     return id;
 }
 
-std::string Person::getName() const {
+string Person::getName() const {
     return name;
 }
 
-std::string Person::getContact() const {
+string Person::getContact() const {
     return contact;
 }
 
-std::string Person::getAddress() const {
+string Person::getAddress() const {
     return address;
 }
 
 void Person::displayDetails() const {
-    std::cout << "ID      : " << id << '\n';
-    std::cout << "Name    : " << name << '\n';
-    std::cout << "Contact : " << contact << '\n';
-    std::cout << "Address : " << address << '\n';
+    cout << "ID      : " << id << '\n';
+    cout << "Name    : " << name << '\n';
+    cout << "Contact : " << contact << '\n';
+    cout << "Address : " << address << '\n';
 }

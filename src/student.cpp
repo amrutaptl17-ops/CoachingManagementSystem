@@ -1,22 +1,39 @@
 
 #include "Student.h"
 #include <iostream>
+#include <stdexcept>
 
-Student::Student(int id, const std::string& name,
-                 const std::string& contact,
-                 const std::string& address,
-                 const std::string& course,
-                 const std::string& batch,
-                 const std::string& admissionDate)
+using namespace std;
+
+Student::Student(int id, const string& name,
+                 const string& contact,
+                 const string& address,
+                 const string& course,
+                 const string& batch,
+                 const string& admissionDate)
     : Person(id, name, contact, address),
       course(course), batch(batch),
       admissionDate(admissionDate) {
 }
 
 void Student::displayDetails() const {
-    std::cout << "\n=== Student Details ===\n";
+    cout << "\n=== Student Details ===\n";
     Person::displayDetails();
-    std::cout << "Course         : " << course << '\n';
-    std::cout << "Batch          : " << batch << '\n';
-    std::cout << "Admission Date : " << admissionDate << '\n';
+    cout << "Course         : " << course << '\n';
+    cout << "Batch          : " << batch << '\n';
+    cout << "Admission Date : " << admissionDate << '\n';
+}
+
+void Student::saveToFile(ofstream& file) const {
+    if (!file.is_open()) {
+        throw runtime_error("Could not open student file.");
+    }
+
+    file << getId() << ','
+         << getName() << ','
+         << getContact() << ','
+         << getAddress() << ','
+         << course << ','
+         << batch << ','
+         << admissionDate << '\n';
 }

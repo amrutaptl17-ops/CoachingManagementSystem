@@ -4,6 +4,7 @@
 
 #include "Person.h"
 #include <string>
+#include <fstream>
 using namespace std;
 
 class Student : public Person {
@@ -21,6 +22,8 @@ public:
             const string& admissionDate);
 
     void displayDetails() const override;
+
+    void saveToFile(ofstream& file) const;
 };
 
 #endif

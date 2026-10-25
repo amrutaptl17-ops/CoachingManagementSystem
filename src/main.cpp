@@ -7,6 +7,8 @@
 #include <iostream>
 #include <exception>
 
+using namespace std;
+
 int main() {
     try {
         FeePayment payment(
@@ -33,23 +35,23 @@ int main() {
             "Anand", "C++ Programming", 45000.0
         );
 
-        std::cout << "=== Fee Payment Details ===\n";
+        cout << "=== Fee Payment Details ===\n";
         payment.displayPayment();
 
-        std::cout << "\n=== Test Details ===\n";
+        cout << "\n=== Test Details ===\n";
         test.displayTest();
 
-        std::cout << "\n=== Attendance Details ===\n";
+        cout << "\n=== Attendance Details ===\n";
         attendance.displayAttendance();
 
-        std::cout << "\n=== Student Details ===\n";
+        cout << "\n=== Student Details ===\n";
         student.displayDetails();
 
-        std::cout << "\n=== Faculty Details ===\n";
+        cout << "\n=== Faculty Details ===\n";
         faculty.displayDetails();
 
-    } catch (const std::exception& e) {
-        std::cout << "Error: " << e.what() << '\n';
+    } catch (const exception& e) {
+        cout << "Error: " << e.what() << '\n';
     }
 
     return 0;
