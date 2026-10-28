@@ -47,3 +47,20 @@ std::vector<FeePayment> FeeManager::findPaymentsByStudentId(
 
     return result;
 }
+void FeeManager::addPayment(
+    int paymentId,
+    int studentId,
+    double amount,
+    const std::string& paymentDate,
+    const std::string& paymentMethod
+) {
+    FeePayment payment(
+        paymentId,
+        studentId,
+        amount,
+        paymentDate,
+        paymentMethod
+    );
+
+    addPayment(payment);
+}

@@ -48,3 +48,22 @@ void FeePayment::displayPayment() const {
     cout << "Payment Date   : " << paymentDate << '\n';
     cout << "Payment Method : " << paymentMethod << '\n';
 }
+
+FeePayment FeePayment::operator+(const FeePayment& other) const {
+    return FeePayment(
+        paymentId,
+        studentId,
+        amount + other.amount,
+        paymentDate,
+        paymentMethod
+    );
+}
+ostream& operator<<(ostream& os, const FeePayment& payment) {
+    os << "Payment ID     : " << payment.paymentId << '\n';
+    os << "Student ID     : " << payment.studentId << '\n';
+    os << "Amount         : Rs. " << payment.amount << '\n';
+    os << "Payment Date   : " << payment.paymentDate << '\n';
+    os << "Payment Method : " << payment.paymentMethod << '\n';
+
+    return os;
+}

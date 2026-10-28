@@ -1,8 +1,9 @@
-
 #ifndef FEEPAYMENT_H
 #define FEEPAYMENT_H
 
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 class FeePayment {
@@ -23,6 +24,11 @@ public:
     double getAmount() const;
 
     void displayPayment() const;
+
+    FeePayment operator+(const FeePayment& other) const;
+
+    friend ostream& operator<<(ostream& os,
+                               const FeePayment& payment);
 };
 
 #endif

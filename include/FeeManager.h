@@ -12,6 +12,10 @@ private:
 public:
     void addPayment(const FeePayment& payment);
 
+    void addPayment(int paymentId, int studentId,
+                double amount, const std::string& paymentDate,
+                const std::string& paymentMethod);
+
     double getTotalPaidForStudent(int studentId) const;
 
     std::vector<FeePayment> findPaymentsByStudentId(
