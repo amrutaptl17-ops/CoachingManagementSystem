@@ -1,0 +1,15 @@
+
+name: C++ Build Check
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile project
+        run: |
+          g++ -std=c++17 -Iinclude src/*.cpp -o main
