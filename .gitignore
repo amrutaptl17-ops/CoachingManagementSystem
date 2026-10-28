@@ -1,2 +1,10 @@
-*.o
+```gitignore
+# Compiled executable and object files
 *.exe
+*.o
+
+# Temporary test outputs
+coaching_test
+fee_test
+fee_file_test
+```
